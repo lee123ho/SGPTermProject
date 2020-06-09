@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		770AB15724900BEE00D76EC7 /* HospitalTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770AB15624900BEE00D76EC7 /* HospitalTableViewController.swift */; };
 		77DE8E3F24866AAA00EAEB58 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77DE8E3E24866AAA00EAEB58 /* AppDelegate.swift */; };
 		77DE8E4124866AAA00EAEB58 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77DE8E4024866AAA00EAEB58 /* SceneDelegate.swift */; };
 		77DE8E4324866AAA00EAEB58 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77DE8E4224866AAA00EAEB58 /* ViewController.swift */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		770AB15624900BEE00D76EC7 /* HospitalTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HospitalTableViewController.swift; sourceTree = "<group>"; };
 		77DE8E3B24866AAA00EAEB58 /* SGPTermProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SGPTermProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		77DE8E3E24866AAA00EAEB58 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		77DE8E4024866AAA00EAEB58 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -59,6 +61,7 @@
 				77DE8E3E24866AAA00EAEB58 /* AppDelegate.swift */,
 				77DE8E4024866AAA00EAEB58 /* SceneDelegate.swift */,
 				77DE8E4224866AAA00EAEB58 /* ViewController.swift */,
+				770AB15624900BEE00D76EC7 /* HospitalTableViewController.swift */,
 				77DE8E4424866AAA00EAEB58 /* Main.storyboard */,
 				77DE8E4724866AAB00EAEB58 /* Assets.xcassets */,
 				77DE8E4924866AAB00EAEB58 /* LaunchScreen.storyboard */,
@@ -140,6 +143,7 @@
 			files = (
 				77DE8E4324866AAA00EAEB58 /* ViewController.swift in Sources */,
 				77DE8E3F24866AAA00EAEB58 /* AppDelegate.swift in Sources */,
+				770AB15724900BEE00D76EC7 /* HospitalTableViewController.swift in Sources */,
 				77DE8E4124866AAA00EAEB58 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

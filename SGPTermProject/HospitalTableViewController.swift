@@ -28,9 +28,8 @@ class HospitalTableViewController: UITableViewController, XMLParserDelegate {
     // 위도 경도 좌표 변수
     var XPos = NSMutableString()
     var YPos = NSMutableString()
-    // 병원 이름 변수와 utf8 변수 추가
-    var hospitalname = ""
-    var hospitalname_utf8 = ""
+    // row 개수 체크
+    var row = 0
     
     func beginParsing() {
         posts = []
@@ -94,7 +93,6 @@ class HospitalTableViewController: UITableViewController, XMLParserDelegate {
                 elements.setObject(REFINE_LOTNO_ADDR, forKey: "YPos" as NSCopying)
             }
             
-            
             posts.add(elements)
         }
     }
@@ -132,31 +130,30 @@ class HospitalTableViewController: UITableViewController, XMLParserDelegate {
         return posts.count
     }
     
-    /*override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
-        if segue.identifier == "segueToMapView"
+        /*if segue.identifier == "segueToMapView"
         {
             if let mapViewController = segue.destination as? MapViewController
             {
                 mapViewController.posts = posts
             }
-        }
+        }*/
         
         if segue.identifier == "segueToHospitalDetail"
         {
             if let cell = sender as? UITableViewCell
             {
                 let indexPath = tableView.indexPath(for: cell)
-                hospitalname = (posts.object(at: (indexPath?.row)!) as AnyObject).value(forKey: "PARK_NM") as! NSString as String
-                hospitalname_utf8 = hospitalname.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!
-                
+                row = indexPath!.row
                 if let detailHospitalTableViewController = segue.destination as? DetailHospitalTableViewController
                 {
-                    detailHospitalTableViewController.url = url! + "&yadmNm=" + hospitalname_utf8
+                    detailHospitalTableViewController.rowCount = row
+                    detailHospitalTableViewController.url = url!
                 }
             }
         }
-    }*/
+    }
 
     /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		770AB15724900BEE00D76EC7 /* HospitalTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770AB15624900BEE00D76EC7 /* HospitalTableViewController.swift */; };
+		770AB15924911C9F00D76EC7 /* DetailHospitalTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770AB15824911C9F00D76EC7 /* DetailHospitalTableViewController.swift */; };
+		770AB15F24925F1200D76EC7 /* WeatherTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770AB15E24925F1200D76EC7 /* WeatherTableViewController.swift */; };
+		770AB16124926C5E00D76EC7 /* rain.png in Resources */ = {isa = PBXBuildFile; fileRef = 770AB16024926C5E00D76EC7 /* rain.png */; };
+		770AB16324926C6600D76EC7 /* sun.png in Resources */ = {isa = PBXBuildFile; fileRef = 770AB16224926C6600D76EC7 /* sun.png */; };
 		77DE8E3F24866AAA00EAEB58 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77DE8E3E24866AAA00EAEB58 /* AppDelegate.swift */; };
 		77DE8E4124866AAA00EAEB58 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77DE8E4024866AAA00EAEB58 /* SceneDelegate.swift */; };
 		77DE8E4324866AAA00EAEB58 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77DE8E4224866AAA00EAEB58 /* ViewController.swift */; };
@@ -18,6 +22,10 @@
 
 /* Begin PBXFileReference section */
 		770AB15624900BEE00D76EC7 /* HospitalTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HospitalTableViewController.swift; sourceTree = "<group>"; };
+		770AB15824911C9F00D76EC7 /* DetailHospitalTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailHospitalTableViewController.swift; sourceTree = "<group>"; };
+		770AB15E24925F1200D76EC7 /* WeatherTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherTableViewController.swift; sourceTree = "<group>"; };
+		770AB16024926C5E00D76EC7 /* rain.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rain.png; sourceTree = SOURCE_ROOT; };
+		770AB16224926C6600D76EC7 /* sun.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sun.png; sourceTree = SOURCE_ROOT; };
 		77DE8E3B24866AAA00EAEB58 /* SGPTermProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SGPTermProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		77DE8E3E24866AAA00EAEB58 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		77DE8E4024866AAA00EAEB58 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -62,8 +70,12 @@
 				77DE8E4024866AAA00EAEB58 /* SceneDelegate.swift */,
 				77DE8E4224866AAA00EAEB58 /* ViewController.swift */,
 				770AB15624900BEE00D76EC7 /* HospitalTableViewController.swift */,
+				770AB15824911C9F00D76EC7 /* DetailHospitalTableViewController.swift */,
+				770AB15E24925F1200D76EC7 /* WeatherTableViewController.swift */,
 				77DE8E4424866AAA00EAEB58 /* Main.storyboard */,
+				770AB16024926C5E00D76EC7 /* rain.png */,
 				77DE8E4724866AAB00EAEB58 /* Assets.xcassets */,
+				770AB16224926C6600D76EC7 /* sun.png */,
 				77DE8E4924866AAB00EAEB58 /* LaunchScreen.storyboard */,
 				77DE8E4C24866AAB00EAEB58 /* Info.plist */,
 			);
@@ -129,6 +141,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				77DE8E4B24866AAB00EAEB58 /* LaunchScreen.storyboard in Resources */,
+				770AB16124926C5E00D76EC7 /* rain.png in Resources */,
+				770AB16324926C6600D76EC7 /* sun.png in Resources */,
 				77DE8E4824866AAB00EAEB58 /* Assets.xcassets in Resources */,
 				77DE8E4624866AAA00EAEB58 /* Main.storyboard in Resources */,
 			);
@@ -141,6 +155,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				770AB15924911C9F00D76EC7 /* DetailHospitalTableViewController.swift in Sources */,
+				770AB15F24925F1200D76EC7 /* WeatherTableViewController.swift in Sources */,
 				77DE8E4324866AAA00EAEB58 /* ViewController.swift in Sources */,
 				77DE8E3F24866AAA00EAEB58 /* AppDelegate.swift in Sources */,
 				770AB15724900BEE00D76EC7 /* HospitalTableViewController.swift in Sources */,

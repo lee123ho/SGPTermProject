@@ -156,10 +156,10 @@
             </objects>
             <point key="canvasLocation" x="2664" y="120"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Detail Hospital Table View Controller-->
         <scene sceneID="I1O-9x-8wj">
             <objects>
-                <tableViewController id="ByO-oH-Cko" sceneMemberID="viewController">
+                <tableViewController id="ByO-oH-Cko" customClass="DetailHospitalTableViewController" customModule="SGPTermProject" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="LTv-W9-18B">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -195,7 +195,13 @@
                             <outlet property="delegate" destination="ByO-oH-Cko" id="zi7-Vc-Yru"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="bMf-YL-mWe"/>
+                    <navigationItem key="navigationItem" id="bMf-YL-mWe">
+                        <barButtonItem key="rightBarButtonItem" title="날씨" id="jiK-C9-4CI">
+                            <connections>
+                                <segue destination="W9R-kB-j3d" kind="show" identifier="sequeToWeather" id="8MQ-Zp-IqR"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="detailTableView" destination="LTv-W9-18B" id="244-yx-WIv"/>
                     </connections>
@@ -203,6 +209,67 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TCJ-hV-hi6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3574" y="120"/>
+        </scene>
+        <!--Weather View Controller-->
+        <scene sceneID="aWR-Wa-Y4C">
+            <objects>
+                <viewController id="W9R-kB-j3d" customClass="WeatherViewController" customModule="SGPTermProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="j1S-1m-eM7">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Umj-Y5-cpe">
+                                <rect key="frame" x="0.0" y="359" width="414" height="537"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="WeatherCell" textLabel="QvW-lv-uNP" detailTextLabel="LQg-sc-8Mr" style="IBUITableViewCellStyleSubtitle" id="2SM-Zt-W65">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="55.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2SM-Zt-W65" id="thW-SO-1pi">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="55.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="QvW-lv-uNP">
+                                                    <rect key="frame" x="20" y="10" width="33.5" height="20.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="LQg-sc-8Mr">
+                                                    <rect key="frame" x="20" y="31.5" width="44" height="14.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="W9R-kB-j3d" id="ISz-dv-1aq"/>
+                                    <outlet property="delegate" destination="W9R-kB-j3d" id="ERv-Iz-ItF"/>
+                                </connections>
+                            </tableView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gXu-Mk-tPi">
+                                <rect key="frame" x="20" y="88" width="374" height="263"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="G8s-Qi-8hl"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="RZQ-e5-Rli"/>
+                    <connections>
+                        <outlet property="WeatherImage" destination="gXu-Mk-tPi" id="Lcg-Vx-9X0"/>
+                        <outlet property="WeatherTableView" destination="Umj-Y5-cpe" id="tfC-nX-yio"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jqe-7b-3Lo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4701.449275362319" y="119.86607142857142"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="8Ow-3K-rva">

@@ -72,6 +72,14 @@ class ViewController: UIViewController, UITextFieldDelegate {
                     hospitalTableViewController.url = url + sggNm_utf8
                 }
             }
+            
+            if (sender as? UITableViewCell) != nil
+            {
+                if let weatherTableViewController = segue.destination as? WeatherViewController
+                {
+                    weatherTableViewController.ssg = sggNm_utf8
+                }
+            }
         }
     }
     

@@ -31,6 +31,8 @@ class HospitalTableViewController: UITableViewController, XMLParserDelegate {
     // row 개수 체크
     var row = 0
     
+    var ssg = " "
+    
     func beginParsing() {
         posts = []
         parser = XMLParser(contentsOf: (URL(string:url!))!)!
@@ -150,6 +152,7 @@ class HospitalTableViewController: UITableViewController, XMLParserDelegate {
                 {
                     detailHospitalTableViewController.rowCount = row
                     detailHospitalTableViewController.url = url!
+                    detailHospitalTableViewController.ssg = ssg
                 }
             }
         }

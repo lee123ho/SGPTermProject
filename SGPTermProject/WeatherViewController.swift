@@ -8,12 +8,15 @@
 
 import UIKit
 
-class WeatherViewController: UIViewController, XMLParserDelegate {
+class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, XMLParserDelegate {
     @IBOutlet weak var WeatherImage: UIImageView!
     @IBOutlet weak var WeatherTableView: UITableView!
     
+    var cal : String = setDate().setCal()
+    var hour : String = setDate().setHour()
+    
     // url을 저장할 변수
-    var url = "https://openapi.gg.go.kr/AWS1hourObser?KEY=56e5c933d8ae4be8b976b425ebd81d80&SIGUN_NM="
+    var url : String = "https://openapi.gg.go.kr/AWS1hourObser?KEY=56e5c933d8ae4be8b976b425ebd81d80&SIGUN_NM="
     
     // xml 파일을 다운로드 및 파싱하는 오브젝트
     var parser = XMLParser()
@@ -34,7 +37,7 @@ class WeatherViewController: UIViewController, XMLParserDelegate {
     
     func beginParsing() {
         posts = []
-        parser = XMLParser(contentsOf: (URL(string:url))!)!
+        parser = XMLParser(contentsOf: (URL(string:url+ssg+"&MESURE_DE="+cal+"&MESURE_TM="+hour))!)!
         parser.delegate = self
         parser.parse()
     }
@@ -93,8 +96,9 @@ class WeatherViewController: UIViewController, XMLParserDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        WeatherTableView.delegate = self
+        WeatherTableView.dataSource = self
         beginParsing()
-        viewWeather()
     }
     
     func tableView(_ talbeView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
@@ -102,6 +106,7 @@ class WeatherViewController: UIViewController, XMLParserDelegate {
         let cell = talbeView.dequeueReusableCell(withIdentifier: "WeatherCell")
         cell?.textLabel?.text = postsname[indexPath.row]
         cell?.detailTextLabel?.text = posts[indexPath.row]
+        viewWeather()
         return cell!
     }
     
@@ -116,29 +121,16 @@ class WeatherViewController: UIViewController, XMLParserDelegate {
     }
     
     func viewWeather() {
-        let newImageView = UIImageView(image: UIImage(named: "sun.png")!)  // 파일 이름으로 이미지 생성
+        let RainState : Int = Int(RAINF_YN_INFO as String) ?? -999
+        var newImageView = UIImageView(image: UIImage(named: "close.png")!)
+        if(RainState == 0) {
+            newImageView = UIImageView(image: UIImage(named: "sun.png")!)  // 파일 이름으로 이미지 생성
+        } else if (RainState == 2 && RainState == 10) {
+            newImageView = UIImageView(image: UIImage(named: "rain.png")!)
+        }
         newImageView.center = WeatherImage.center     // 카드 초기 위치는 카드 덱에서 시작
+        newImageView.bounds.size = WeatherImage.bounds.size
         
         self.view.addSubview(newImageView)
     }
-    
-    func setCal() -> Int {
-        let formatter_Cal = DateFormatter()
-        formatter_Cal.dateFormat = "yyyyMMdd"
-        let cal = formatter_Cal.string(from: Date())
-        let calNum = Int(cal)!
-        
-        return calNum
-    }
-    
-    func setHour() -> Int {
-        let formatter_hour = DateFormatter()
-        formatter_hour.dateFormat = "HH"
-        let rHour = formatter_hour.string(from: Date())
-        
-        let pHour : Int = Int(rHour)! - 1
-        
-        return pHour
-    }
-
 }

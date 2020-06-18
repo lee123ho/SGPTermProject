@@ -70,14 +70,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
             if let navController = segue.destination as? UINavigationController {
                 if let hospitalTableViewController = navController.topViewController as? HospitalTableViewController {
                     hospitalTableViewController.url = url + sggNm_utf8
-                }
-            }
-            
-            if (sender as? UITableViewCell) != nil
-            {
-                if let weatherTableViewController = segue.destination as? WeatherViewController
-                {
-                    weatherTableViewController.ssg = sggNm_utf8
+                    hospitalTableViewController.ssg = sggNm_utf8
                 }
             }
         }

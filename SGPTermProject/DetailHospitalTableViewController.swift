@@ -205,13 +205,12 @@ class DetailHospitalTableViewController: UITableViewController, XMLParserDelegat
     {
         if segue.identifier == "sequeToWeather"
         {
-            if (sender as? UITableViewCell) != nil
-            {
-                if let weatherTableViewController = segue.destination as? WeatherViewController
+            
+                if let weatherViewController = segue.destination as? WeatherViewController
                 {
-                    weatherTableViewController.url = url!
+                    weatherViewController.ssg = ssg
                 }
-            }
+            
         }
     }
 

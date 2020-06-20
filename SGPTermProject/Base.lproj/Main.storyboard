@@ -271,10 +271,10 @@
             </objects>
             <point key="canvasLocation" x="5389.8550724637689" y="119.86607142857142"/>
         </scene>
-        <!--View Controller-->
+        <!--Map View Controller-->
         <scene sceneID="8Ow-3K-rva">
             <objects>
-                <viewController id="HAK-fx-Uwk" sceneMemberID="viewController">
+                <viewController id="HAK-fx-Uwk" customClass="MapViewController" customModule="SGPTermProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tg3-qg-4Sp">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

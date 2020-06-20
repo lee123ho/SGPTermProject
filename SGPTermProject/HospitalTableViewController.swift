@@ -26,8 +26,8 @@ class HospitalTableViewController: UITableViewController, XMLParserDelegate {
     var PARK_NM = NSMutableString()
     var REFINE_LOTNO_ADDR = NSMutableString()
     // 위도 경도 좌표 변수
-    var XPos = NSMutableString()
-    var YPos = NSMutableString()
+    var REFINE_WGS84_LAT = NSMutableString()
+    var REFINE_WGS84_LOGT = NSMutableString()
     // row 개수 체크
     var row = 0
     
@@ -52,10 +52,10 @@ class HospitalTableViewController: UITableViewController, XMLParserDelegate {
             REFINE_LOTNO_ADDR = NSMutableString()
             REFINE_LOTNO_ADDR = ""
             
-            XPos = NSMutableString()
-            XPos = ""
-            YPos = NSMutableString()
-            YPos = ""
+            REFINE_WGS84_LAT = NSMutableString()
+            REFINE_WGS84_LAT = ""
+            REFINE_WGS84_LOGT = NSMutableString()
+            REFINE_WGS84_LOGT = ""
         }
     }
     
@@ -67,12 +67,12 @@ class HospitalTableViewController: UITableViewController, XMLParserDelegate {
         {
             REFINE_LOTNO_ADDR.append(string)
         }
-        else if element.isEqual(to: "XPos")
+        else if element.isEqual(to: "REFINE_WGS84_LOGT")
         {
-            XPos.append(string)
-        } else if element.isEqual(to: "YPos")
+            REFINE_WGS84_LOGT.append(string)
+        } else if element.isEqual(to: "REFINE_WGS84_LAT")
         {
-            YPos.append(string)
+            REFINE_WGS84_LAT.append(string)
         }
     }
     
@@ -86,13 +86,13 @@ class HospitalTableViewController: UITableViewController, XMLParserDelegate {
             {
                 elements.setObject(REFINE_LOTNO_ADDR, forKey: "REFINE_LOTNO_ADDR" as NSCopying)
             }
-            if !XPos.isEqual(nil)
+            if !REFINE_WGS84_LOGT.isEqual(nil)
             {
-                elements.setObject(PARK_NM, forKey: "XPos" as NSCopying)
+                elements.setObject(REFINE_WGS84_LOGT, forKey: "REFINE_WGS84_LOGT" as NSCopying)
             }
-            if !YPos.isEqual(nil)
+            if !REFINE_WGS84_LAT.isEqual(nil)
             {
-                elements.setObject(REFINE_LOTNO_ADDR, forKey: "YPos" as NSCopying)
+                elements.setObject(REFINE_WGS84_LAT, forKey: "REFINE_WGS84_LAT" as NSCopying)
             }
             
             posts.add(elements)
@@ -134,13 +134,13 @@ class HospitalTableViewController: UITableViewController, XMLParserDelegate {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
-        /*if segue.identifier == "segueToMapView"
+        if segue.identifier == "segueToMapView"
         {
             if let mapViewController = segue.destination as? MapViewController
             {
                 mapViewController.posts = posts
             }
-        }*/
+        }
         
         if segue.identifier == "segueToHospitalDetail"
         {

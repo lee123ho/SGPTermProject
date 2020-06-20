@@ -14,6 +14,8 @@
 		770AB16324926C6600D76EC7 /* sun.png in Resources */ = {isa = PBXBuildFile; fileRef = 770AB16224926C6600D76EC7 /* sun.png */; };
 		770AB1A5249B759300D76EC7 /* setDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770AB1A4249B759300D76EC7 /* setDate.swift */; };
 		770AB1A7249BE2B700D76EC7 /* close.png in Resources */ = {isa = PBXBuildFile; fileRef = 770AB1A6249BE2B700D76EC7 /* close.png */; };
+		770BFAD9249E6FD00000CEBF /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770BFAD7249E6FD00000CEBF /* MapViewController.swift */; };
+		770BFADA249E6FD00000CEBF /* Park.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770BFAD8249E6FD00000CEBF /* Park.swift */; };
 		77DE8E3F24866AAA00EAEB58 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77DE8E3E24866AAA00EAEB58 /* AppDelegate.swift */; };
 		77DE8E4124866AAA00EAEB58 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77DE8E4024866AAA00EAEB58 /* SceneDelegate.swift */; };
 		77DE8E4324866AAA00EAEB58 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77DE8E4224866AAA00EAEB58 /* ViewController.swift */; };
@@ -30,6 +32,8 @@
 		770AB16224926C6600D76EC7 /* sun.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sun.png; sourceTree = SOURCE_ROOT; };
 		770AB1A4249B759300D76EC7 /* setDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = setDate.swift; sourceTree = "<group>"; };
 		770AB1A6249BE2B700D76EC7 /* close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = close.png; sourceTree = SOURCE_ROOT; };
+		770BFAD7249E6FD00000CEBF /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		770BFAD8249E6FD00000CEBF /* Park.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Park.swift; sourceTree = "<group>"; };
 		77DE8E3B24866AAA00EAEB58 /* SGPTermProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SGPTermProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		77DE8E3E24866AAA00EAEB58 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		77DE8E4024866AAA00EAEB58 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -76,8 +80,10 @@
 				770AB15624900BEE00D76EC7 /* HospitalTableViewController.swift */,
 				770AB15824911C9F00D76EC7 /* DetailHospitalTableViewController.swift */,
 				770AB15E24925F1200D76EC7 /* WeatherViewController.swift */,
+				770BFAD7249E6FD00000CEBF /* MapViewController.swift */,
 				77DE8E4424866AAA00EAEB58 /* Main.storyboard */,
 				770AB1A4249B759300D76EC7 /* setDate.swift */,
+				770BFAD8249E6FD00000CEBF /* Park.swift */,
 				77DE8E4724866AAB00EAEB58 /* Assets.xcassets */,
 				770AB1A6249BE2B700D76EC7 /* close.png */,
 				770AB16224926C6600D76EC7 /* sun.png */,
@@ -169,6 +175,8 @@
 				770AB15724900BEE00D76EC7 /* HospitalTableViewController.swift in Sources */,
 				77DE8E4124866AAA00EAEB58 /* SceneDelegate.swift in Sources */,
 				770AB1A5249B759300D76EC7 /* setDate.swift in Sources */,
+				770BFADA249E6FD00000CEBF /* Park.swift in Sources */,
+				770BFAD9249E6FD00000CEBF /* MapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

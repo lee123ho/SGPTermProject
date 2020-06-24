@@ -8,6 +8,12 @@
 
 import UIKit
 
+struct ParkStruct {
+    var name : String
+    var add : String
+    var row : Int
+}
+
 class HospitalTableViewController: UITableViewController, XMLParserDelegate {
 
     @IBOutlet var tbData: UITableView!
@@ -19,6 +25,7 @@ class HospitalTableViewController: UITableViewController, XMLParserDelegate {
     var parser = XMLParser()
     // feed 데이터를 저장하는 mutable array
     var posts = NSMutableArray()
+    var filteredposts = NSMutableArray()
     // title과 date 같은 feed 데이터를 저장하는 mutable dictionary
     var elements = NSMutableDictionary()
     var element = NSString()
@@ -30,8 +37,14 @@ class HospitalTableViewController: UITableViewController, XMLParserDelegate {
     var REFINE_WGS84_LOGT = NSMutableString()
     // row 개수 체크
     var row = 0
+    var filterRow = 0
     
     var ssg = " "
+    
+    var parkInfose = [ParkStruct]()
+    var filterParkInfo = [ParkStruct]()
+    
+    let searchController = UISearchController(searchResultsController: nil)
     
     func beginParsing() {
         posts = []
@@ -95,6 +108,10 @@ class HospitalTableViewController: UITableViewController, XMLParserDelegate {
                 elements.setObject(REFINE_WGS84_LAT, forKey: "REFINE_WGS84_LAT" as NSCopying)
             }
             
+            parkInfose.append(ParkStruct(name: elements.object(forKey: "PARK_NM") as! String, add: elements.object(forKey: "REFINE_LOTNO_ADDR") as! String, row: filterRow))
+            
+            filterRow += 1
+            
             posts.add(elements)
         }
     }
@@ -103,15 +120,42 @@ class HospitalTableViewController: UITableViewController, XMLParserDelegate {
     {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         
-        cell.textLabel?.text = (posts.object(at: indexPath.row) as AnyObject).value(forKey: "PARK_NM") as! NSString as String
-        cell.detailTextLabel?.text = (posts.object(at: indexPath.row) as AnyObject).value(forKey: "REFINE_LOTNO_ADDR") as! NSString as String
+        if isFiltering() {
+            cell.textLabel?.text = filterParkInfo[indexPath.row].name
+            cell.detailTextLabel?.text = filterParkInfo[indexPath.row].add
+        } else {
+            cell.textLabel?.text = (posts.object(at: indexPath.row) as AnyObject).value(forKey: "PARK_NM") as! NSString as String
+            cell.detailTextLabel?.text = (posts.object(at: indexPath.row) as AnyObject).value(forKey: "REFINE_LOTNO_ADDR") as! NSString as String
+        }
         
         return cell
+    }
+    
+    func searchBarIsEmpty() -> Bool {
+        return searchController.searchBar.text?.isEmpty ?? true
+    }
+    
+    func filterContentForSearchText(_ searchText: String) {
+        filterParkInfo = parkInfose.filter({( park: ParkStruct ) -> Bool in
+            return park.add.contains(searchText) || park.name.contains(searchText)
+        })
+        
+        tbData.reloadData()
+    }
+    
+    func isFiltering() -> Bool {
+        return searchController.isActive && !searchBarIsEmpty()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         beginParsing()
+        
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Search Park Name or Address"
+        navigationItem.searchController = searchController
+        definesPresentationContext = true
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -129,6 +173,9 @@ class HospitalTableViewController: UITableViewController, XMLParserDelegate {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
+        if isFiltering() {
+            return filterParkInfo.count
+        }
         return posts.count
     }
     
@@ -147,7 +194,11 @@ class HospitalTableViewController: UITableViewController, XMLParserDelegate {
             if let cell = sender as? UITableViewCell
             {
                 let indexPath = tableView.indexPath(for: cell)
-                row = indexPath!.row
+                if isFiltering() {
+                    row = filterParkInfo[indexPath!.row].row
+                } else {
+                    row = indexPath!.row
+                }
                 if let detailHospitalTableViewController = segue.destination as? DetailHospitalTableViewController
                 {
                     detailHospitalTableViewController.rowCount = row
@@ -157,60 +208,10 @@ class HospitalTableViewController: UITableViewController, XMLParserDelegate {
             }
         }
     }
+}
 
-    /*
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
-        return cell
+extension HospitalTableViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        filterContentForSearchText(searchController.searchBar.text!)
     }
-    */
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

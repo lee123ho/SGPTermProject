@@ -16,6 +16,22 @@
 		770AB1A7249BE2B700D76EC7 /* close.png in Resources */ = {isa = PBXBuildFile; fileRef = 770AB1A6249BE2B700D76EC7 /* close.png */; };
 		770BFAD9249E6FD00000CEBF /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770BFAD7249E6FD00000CEBF /* MapViewController.swift */; };
 		770BFADA249E6FD00000CEBF /* Park.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770BFAD8249E6FD00000CEBF /* Park.swift */; };
+		770BFADC24A2301C0000CEBF /* number.png in Resources */ = {isa = PBXBuildFile; fileRef = 770BFADB24A2301C0000CEBF /* number.png */; };
+		77587CE924A26C31005D581B /* StationHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77587CE424A26C30005D581B /* StationHeader.swift */; };
+		77587CEA24A26C31005D581B /* DoubleExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77587CE524A26C31005D581B /* DoubleExtension.swift */; };
+		77587CEB24A26C31005D581B /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77587CE624A26C31005D581B /* MapView.swift */; };
+		77587CF124A26C37005D581B /* TemperatureChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77587CEE24A26C37005D581B /* TemperatureChart.swift */; };
+		77587CF224A26C37005D581B /* PrecipitationChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77587CEF24A26C37005D581B /* PrecipitationChart.swift */; };
+		77587CF324A26C37005D581B /* SnowFallChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77587CF024A26C37005D581B /* SnowFallChart.swift */; };
+		77587CF724A26C3F005D581B /* WeatherInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77587CF424A26C3F005D581B /* WeatherInformation.swift */; };
+		77587CF824A26C3F005D581B /* DayInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77587CF524A26C3F005D581B /* DayInfo.swift */; };
+		77587CF924A26C3F005D581B /* WeatherStation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77587CF624A26C3F005D581B /* WeatherStation.swift */; };
+		77587CFD24A26C47005D581B /* PrecipitationTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77587CFA24A26C47005D581B /* PrecipitationTab.swift */; };
+		77587CFE24A26C47005D581B /* TemperatureTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77587CFB24A26C47005D581B /* TemperatureTab.swift */; };
+		77587CFF24A26C47005D581B /* SnowfallTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77587CFC24A26C47005D581B /* SnowfallTab.swift */; };
+		77587D0124A272A2005D581B /* weather-data.csv in Resources */ = {isa = PBXBuildFile; fileRef = 77587D0024A272A2005D581B /* weather-data.csv */; };
+		77587D0524A27808005D581B /* Dust.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77587D0424A27808005D581B /* Dust.swift */; };
+		77587D0724A306E9005D581B /* wallpaper.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 77587D0624A306E9005D581B /* wallpaper.jpg */; };
 		77DE8E3F24866AAA00EAEB58 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77DE8E3E24866AAA00EAEB58 /* AppDelegate.swift */; };
 		77DE8E4124866AAA00EAEB58 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77DE8E4024866AAA00EAEB58 /* SceneDelegate.swift */; };
 		77DE8E4324866AAA00EAEB58 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77DE8E4224866AAA00EAEB58 /* ViewController.swift */; };
@@ -34,6 +50,22 @@
 		770AB1A6249BE2B700D76EC7 /* close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = close.png; sourceTree = SOURCE_ROOT; };
 		770BFAD7249E6FD00000CEBF /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		770BFAD8249E6FD00000CEBF /* Park.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Park.swift; sourceTree = "<group>"; };
+		770BFADB24A2301C0000CEBF /* number.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = number.png; sourceTree = SOURCE_ROOT; };
+		77587CE424A26C30005D581B /* StationHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StationHeader.swift; sourceTree = "<group>"; };
+		77587CE524A26C31005D581B /* DoubleExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoubleExtension.swift; sourceTree = "<group>"; };
+		77587CE624A26C31005D581B /* MapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		77587CEE24A26C37005D581B /* TemperatureChart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TemperatureChart.swift; path = Charts/TemperatureChart.swift; sourceTree = "<group>"; };
+		77587CEF24A26C37005D581B /* PrecipitationChart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PrecipitationChart.swift; path = Charts/PrecipitationChart.swift; sourceTree = "<group>"; };
+		77587CF024A26C37005D581B /* SnowFallChart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SnowFallChart.swift; path = Charts/SnowFallChart.swift; sourceTree = "<group>"; };
+		77587CF424A26C3F005D581B /* WeatherInformation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WeatherInformation.swift; path = Models/WeatherInformation.swift; sourceTree = "<group>"; };
+		77587CF524A26C3F005D581B /* DayInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DayInfo.swift; path = Models/DayInfo.swift; sourceTree = "<group>"; };
+		77587CF624A26C3F005D581B /* WeatherStation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WeatherStation.swift; path = Models/WeatherStation.swift; sourceTree = "<group>"; };
+		77587CFA24A26C47005D581B /* PrecipitationTab.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PrecipitationTab.swift; path = Tabs/PrecipitationTab.swift; sourceTree = "<group>"; };
+		77587CFB24A26C47005D581B /* TemperatureTab.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TemperatureTab.swift; path = Tabs/TemperatureTab.swift; sourceTree = "<group>"; };
+		77587CFC24A26C47005D581B /* SnowfallTab.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SnowfallTab.swift; path = Tabs/SnowfallTab.swift; sourceTree = "<group>"; };
+		77587D0024A272A2005D581B /* weather-data.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "weather-data.csv"; path = "Models/weather-data.csv"; sourceTree = "<group>"; };
+		77587D0424A27808005D581B /* Dust.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dust.swift; sourceTree = "<group>"; };
+		77587D0624A306E9005D581B /* wallpaper.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = wallpaper.jpg; sourceTree = SOURCE_ROOT; };
 		77DE8E3B24866AAA00EAEB58 /* SGPTermProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SGPTermProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		77DE8E3E24866AAA00EAEB58 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		77DE8E4024866AAA00EAEB58 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -74,6 +106,19 @@
 		77DE8E3D24866AAA00EAEB58 /* SGPTermProject */ = {
 			isa = PBXGroup;
 			children = (
+				77587D0024A272A2005D581B /* weather-data.csv */,
+				77587CFA24A26C47005D581B /* PrecipitationTab.swift */,
+				77587CFC24A26C47005D581B /* SnowfallTab.swift */,
+				77587CFB24A26C47005D581B /* TemperatureTab.swift */,
+				77587CF524A26C3F005D581B /* DayInfo.swift */,
+				77587CF424A26C3F005D581B /* WeatherInformation.swift */,
+				77587CF624A26C3F005D581B /* WeatherStation.swift */,
+				77587CEF24A26C37005D581B /* PrecipitationChart.swift */,
+				77587CF024A26C37005D581B /* SnowFallChart.swift */,
+				77587CEE24A26C37005D581B /* TemperatureChart.swift */,
+				77587CE524A26C31005D581B /* DoubleExtension.swift */,
+				77587CE624A26C31005D581B /* MapView.swift */,
+				77587CE424A26C30005D581B /* StationHeader.swift */,
 				77DE8E3E24866AAA00EAEB58 /* AppDelegate.swift */,
 				77DE8E4024866AAA00EAEB58 /* SceneDelegate.swift */,
 				77DE8E4224866AAA00EAEB58 /* ViewController.swift */,
@@ -84,7 +129,10 @@
 				77DE8E4424866AAA00EAEB58 /* Main.storyboard */,
 				770AB1A4249B759300D76EC7 /* setDate.swift */,
 				770BFAD8249E6FD00000CEBF /* Park.swift */,
+				77587D0424A27808005D581B /* Dust.swift */,
 				77DE8E4724866AAB00EAEB58 /* Assets.xcassets */,
+				77587D0624A306E9005D581B /* wallpaper.jpg */,
+				770BFADB24A2301C0000CEBF /* number.png */,
 				770AB1A6249BE2B700D76EC7 /* close.png */,
 				770AB16224926C6600D76EC7 /* sun.png */,
 				770AB16024926C5E00D76EC7 /* rain.png */,
@@ -152,9 +200,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				77587D0724A306E9005D581B /* wallpaper.jpg in Resources */,
 				770AB1A7249BE2B700D76EC7 /* close.png in Resources */,
+				77587D0124A272A2005D581B /* weather-data.csv in Resources */,
 				77DE8E4B24866AAB00EAEB58 /* LaunchScreen.storyboard in Resources */,
 				770AB16124926C5E00D76EC7 /* rain.png in Resources */,
+				770BFADC24A2301C0000CEBF /* number.png in Resources */,
 				770AB16324926C6600D76EC7 /* sun.png in Resources */,
 				77DE8E4824866AAB00EAEB58 /* Assets.xcassets in Resources */,
 				77DE8E4624866AAA00EAEB58 /* Main.storyboard in Resources */,
@@ -168,13 +219,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				77587CF224A26C37005D581B /* PrecipitationChart.swift in Sources */,
+				77587CF124A26C37005D581B /* TemperatureChart.swift in Sources */,
+				77587CF824A26C3F005D581B /* DayInfo.swift in Sources */,
 				770AB15924911C9F00D76EC7 /* DetailHospitalTableViewController.swift in Sources */,
+				77587CEB24A26C31005D581B /* MapView.swift in Sources */,
+				77587CE924A26C31005D581B /* StationHeader.swift in Sources */,
 				770AB15F24925F1200D76EC7 /* WeatherViewController.swift in Sources */,
+				77587CEA24A26C31005D581B /* DoubleExtension.swift in Sources */,
+				77587CFE24A26C47005D581B /* TemperatureTab.swift in Sources */,
 				77DE8E4324866AAA00EAEB58 /* ViewController.swift in Sources */,
+				77587CF924A26C3F005D581B /* WeatherStation.swift in Sources */,
+				77587CF324A26C37005D581B /* SnowFallChart.swift in Sources */,
 				77DE8E3F24866AAA00EAEB58 /* AppDelegate.swift in Sources */,
+				77587D0524A27808005D581B /* Dust.swift in Sources */,
 				770AB15724900BEE00D76EC7 /* HospitalTableViewController.swift in Sources */,
 				77DE8E4124866AAA00EAEB58 /* SceneDelegate.swift in Sources */,
+				77587CFD24A26C47005D581B /* PrecipitationTab.swift in Sources */,
+				77587CFF24A26C47005D581B /* SnowfallTab.swift in Sources */,
 				770AB1A5249B759300D76EC7 /* setDate.swift in Sources */,
+				77587CF724A26C3F005D581B /* WeatherInformation.swift in Sources */,
 				770BFADA249E6FD00000CEBF /* Park.swift in Sources */,
 				770BFAD9249E6FD00000CEBF /* MapViewController.swift in Sources */,
 			);

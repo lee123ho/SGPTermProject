@@ -9,9 +9,9 @@
 import UIKit
 import Speech
 
-class ViewController: UIViewController, UITextFieldDelegate {
+class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
-    @IBOutlet weak var nameInsert: UITextField!
+    @IBOutlet weak var pickerView: UIPickerView!
     @IBOutlet weak var transcribeButton: UIButton!
     @IBOutlet weak var stopButton: UIButton!
     @IBOutlet weak var myTextView: UITextView!
@@ -44,19 +44,132 @@ class ViewController: UIViewController, UITextFieldDelegate {
         }
         
         // 음성인식한 내용을 TextField에 반영
-        self.nameInsert.text = myTextView.text
-        sggNm = myTextView.text
+        /*self.nameInsert.text = myTextView.text
+        sggNm = myTextView.text*/
+        // 음성인식한 내용을 pickerView에 반영
+        switch (self.myTextView.text) {
+        case "가평군":
+            self.pickerView.selectRow(0, inComponent: 0, animated: true)
+            sggNm = pickerDataSource[0]
+        case "고양시":
+            self.pickerView.selectRow(1, inComponent: 0, animated: true)
+             sggNm = pickerDataSource[1]
+        case "광명시":
+            self.pickerView.selectRow(2, inComponent: 0, animated: true)
+             sggNm = pickerDataSource[2]
+        case "광주시":
+            self.pickerView.selectRow(3, inComponent: 0, animated: true)
+             sggNm = pickerDataSource[3]
+        case "구리시":
+            self.pickerView.selectRow(4, inComponent: 0, animated: true)
+             sggNm = pickerDataSource[4]
+        case "군포시":
+            self.pickerView.selectRow(5, inComponent: 0, animated: true)
+            sggNm = pickerDataSource[5]
+        case "김포시":
+            self.pickerView.selectRow(6, inComponent: 0, animated: true)
+             sggNm = pickerDataSource[6]
+        case "남양주시":
+            self.pickerView.selectRow(7, inComponent: 0, animated: true)
+             sggNm = pickerDataSource[7]
+        case "동두천시":
+            self.pickerView.selectRow(8, inComponent: 0, animated: true)
+             sggNm = pickerDataSource[8]
+        case "부천시":
+            self.pickerView.selectRow(9, inComponent: 0, animated: true)
+             sggNm = pickerDataSource[9]
+        case "성남시":
+            self.pickerView.selectRow(10, inComponent: 0, animated: true)
+             sggNm = pickerDataSource[10]
+        case "수원시":
+            self.pickerView.selectRow(11, inComponent: 0, animated: true)
+             sggNm = pickerDataSource[11]
+        case "시흥시":
+            self.pickerView.selectRow(12, inComponent: 0, animated: true)
+             sggNm = pickerDataSource[12]
+        case "안산시":
+            self.pickerView.selectRow(13, inComponent: 0, animated: true)
+             sggNm = pickerDataSource[13]
+        case "안성시":
+            self.pickerView.selectRow(14, inComponent: 0, animated: true)
+             sggNm = pickerDataSource[14]
+        case "안양시":
+            self.pickerView.selectRow(15, inComponent: 0, animated: true)
+             sggNm = pickerDataSource[15]
+        case "양주시":
+            self.pickerView.selectRow(16, inComponent: 0, animated: true)
+             sggNm = pickerDataSource[16]
+        case "양평군":
+            self.pickerView.selectRow(17, inComponent: 0, animated: true)
+             sggNm = pickerDataSource[17]
+        case "여주시":
+            self.pickerView.selectRow(18, inComponent: 0, animated: true)
+             sggNm = pickerDataSource[18]
+        case "연천군":
+            self.pickerView.selectRow(19, inComponent: 0, animated: true)
+             sggNm = pickerDataSource[19]
+        case "오산시":
+            self.pickerView.selectRow(20, inComponent: 0, animated: true)
+             sggNm = pickerDataSource[20]
+        case "용인시":
+            self.pickerView.selectRow(21, inComponent: 0, animated: true)
+             sggNm = pickerDataSource[21]
+        case "의왕시":
+            self.pickerView.selectRow(22, inComponent: 0, animated: true)
+             sggNm = pickerDataSource[22]
+        case "의정부시":
+            self.pickerView.selectRow(23, inComponent: 0, animated: true)
+             sggNm = pickerDataSource[23]
+        case "이천시":
+            self.pickerView.selectRow(24, inComponent: 0, animated: true)
+             sggNm = pickerDataSource[24]
+        case "파주시":
+            self.pickerView.selectRow(25, inComponent: 0, animated: true)
+             sggNm = pickerDataSource[25]
+        case "평택시":
+            self.pickerView.selectRow(26, inComponent: 0, animated: true)
+             sggNm = pickerDataSource[26]
+        case "포천시":
+            self.pickerView.selectRow(27, inComponent: 0, animated: true)
+             sggNm = pickerDataSource[27]
+        case "하남시":
+            self.pickerView.selectRow(28, inComponent: 0, animated: true)
+             sggNm = pickerDataSource[28]
+        case "화성시":
+            self.pickerView.selectRow(29, inComponent: 0, animated: true)
+             sggNm = pickerDataSource[29]
+        default:
+            break
+        }
     }
     // Done 버튼을 누르면 동작하는 unwind 메소드
     @IBAction func doneToPickerViewController(segue:UIStoryboardSegue) {
         
     }
     
+    var pickerDataSource = ["가평군", "고양시", "광명시", "광주시", "구리시", "군포시", "김포시", "남양주시" , "동두천시", "부천시", "성남시", "수원시", "시흥시", "안산시", "안성시", "안양시", "양주시", "양평군", "여주시", "연천군", "오산시", "용인시", "의왕시", "의정부시", "이천시", "파주시", "평택시", "포천시", "하남시", "화성시"]
+    
     // 도시 공원 정보 OpenAPI 및 인증키
 
     var url : String = "https://openapi.gg.go.kr/CityPark?KEY=3e0fa34593e7461f8cfce44931d9bea0&SIGUN_NM="
-    var sggNm : String = " "
+    var sggNm : String = "가평군"
     var sggNm_utf8 : String = " "
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return pickerDataSource.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return pickerDataSource[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        sggNm = pickerDataSource[row]
+    }
     
     // prepare 메소드는 segue 실행될 때 호출되는 메소드
     // id를 segueToTableView로 설정
@@ -64,7 +177,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
     // destination으로 설정한 후 HospitalViewController를 선택함
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "segueToTableView" {
-            sggNm = nameInsert.text!
             sggNm_utf8 = sggNm.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!
             
             if let navController = segue.destination as? UINavigationController {
@@ -171,7 +283,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        nameInsert.delegate = self
+        pickerView.delegate = self
+        pickerView.dataSource = self
         // Do any additional setup after loading the view.
     }
 

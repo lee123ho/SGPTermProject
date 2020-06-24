@@ -7,6 +7,30 @@
 //
 
 import UIKit
+import SwiftUI
+struct ParkInfo: View {
+    var posts: NSMutableArray
+  var station: WeatherStation
+  
+    var body: some View {
+      //VStack {
+        //StationHeader(station: self.station)
+        TabView {
+            PrecipitationTab(posts: self.posts)
+            .tabItem({
+              Image(systemName: "sun.dust")
+              Text("미세 먼지")
+            })
+        }.frame(width: 400, height: 265)
+        //}.navigationBarTitle(Text("\(station.name)"), displayMode: .inline).padding()
+    }
+}
+
+struct ParkInfo_Previews: PreviewProvider {
+    static var previews: some View {
+        ParkInfo(posts: WeatherViewController().dustPosts, station: WeatherInformation()!.stations[0])
+    }
+}
 
 class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, XMLParserDelegate {
     @IBOutlet weak var WeatherImage: UIImageView!
@@ -20,14 +44,19 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     // xml 파일을 다운로드 및 파싱하는 오브젝트
     var parser = XMLParser()
+    var dustParser = XMLParser()
     // feed 데이터를 저장하는 mutable array
     var posts : [String] = ["", "", ""]
+    var dustPosts = NSMutableArray()
+    var elements = NSMutableDictionary()
     var element = NSString()
     // 저장 문자열 변수
     var TP_INFO = NSMutableString()
     var RAINF_YN_INFO = NSMutableString()
     var WS_INFO = NSMutableString()
     var HD_INFO = NSMutableString()
+    var gyeonggi = NSMutableString()
+    var dataTime = NSMutableString()
     // row 개수 체크
     var row = 0
     // 시군 이름 저장
@@ -40,6 +69,13 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         parser = XMLParser(contentsOf: (URL(string:url+ssg+"&MESURE_DE="+cal+"&MESURE_TM="+hour))!)!
         parser.delegate = self
         parser.parse()
+    }
+    
+    func dustBeginParsing() {
+        dustPosts = []
+        dustParser = XMLParser(contentsOf: (URL(string:"http://openapi.airkorea.or.kr/openapi/services/rest/ArpltnInforInqireSvc/getCtprvnMesureLIst?serviceKey=2fmtMuQnsvTBDYdGz7BeioMI87jvGCqbM5pkoS2WQxh26xwXkTgOfXt0t2ahSnHTbxHHG1MzWBqnr%2FM9gzE2Qg%3D%3D&numOfRows=10&pageNo=1&itemCode=PM10&dataGubun=HOUR&searchCondition=MONTH&"))!)!
+        dustParser.delegate = self
+        dustParser.parse()
     }
     
     func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String]) {
@@ -58,6 +94,17 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
             HD_INFO = NSMutableString()
             HD_INFO = ""
         }
+        
+        if (elementName as NSString).isEqual(to: "item")
+        {
+            elements = NSMutableDictionary()
+            elements = [:]
+            
+            gyeonggi = NSMutableString()
+            gyeonggi = ""
+            dataTime = NSMutableString()
+            dataTime = ""
+        }
     }
     
     func parser(_ parser: XMLParser, foundCharacters string: String) {
@@ -74,6 +121,14 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         } else if element.isEqual(to: "HD_INFO")
         {
             HD_INFO.append(string)
+        }
+        
+        if element.isEqual(to: "dataTime")
+        {
+            dataTime.append(string)
+        } else if element.isEqual(to: "gyeonggi")
+        {
+            gyeonggi.append(string)
         }
     }
     
@@ -92,6 +147,19 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
                 posts[2] = HD_INFO as String
             }
         }
+        
+        if (elementName as NSString).isEqual(to: "item") {
+            if !dataTime.isEqual(nil)
+            {
+                elements.setObject(dataTime, forKey: "dataTime" as NSCopying)
+            }
+            if !gyeonggi.isEqual(nil)
+            {
+                elements.setObject(gyeonggi, forKey: "gyeonggi" as NSCopying)
+            }
+            
+            dustPosts.add(elements)
+        }
     }
     
     override func viewDidLoad() {
@@ -99,6 +167,24 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         WeatherTableView.delegate = self
         WeatherTableView.dataSource = self
         beginParsing()
+        dustBeginParsing()
+        updateSwift()
+    }
+    
+    func updateSwift() {
+        let stations = WeatherInformation()
+        
+        let swiftUIController = UIHostingController(rootView: ParkInfo(posts: dustPosts, station: (stations?.stations[0])!))
+        
+        addChild(swiftUIController)
+        swiftUIController.view.translatesAutoresizingMaskIntoConstraints = false
+        
+        view.addSubview(swiftUIController.view)
+        
+        swiftUIController.view.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        swiftUIController.view.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        
+        swiftUIController.didMove(toParent: self)
     }
     
     func tableView(_ talbeView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
@@ -121,11 +207,11 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func viewWeather() {
-        let RainState : Int = Int(RAINF_YN_INFO as String) ?? -999
-        var newImageView = UIImageView(image: UIImage(named: "close.png")!)
+        let RainState : Int = Int((RAINF_YN_INFO as String).filter("01234567890.".contains)) ?? -999
+        var newImageView = UIImageView(image: UIImage(named: "number.png")!)
         if(RainState == 0) {
             newImageView = UIImageView(image: UIImage(named: "sun.png")!)  // 파일 이름으로 이미지 생성
-        } else if (RainState == 2 && RainState == 10) {
+        } else if (RainState == 1 || RainState == 10) {
             newImageView = UIImageView(image: UIImage(named: "rain.png")!)
         }
         newImageView.center = WeatherImage.center     // 카드 초기 위치는 카드 덱에서 시작
